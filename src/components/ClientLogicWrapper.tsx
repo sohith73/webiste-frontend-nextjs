@@ -1656,8 +1656,20 @@ function ClientLogicWrapperContent({
             setShowCalendlyModal(false);
             modalDismissedForRouteRef.current = null;
             lastRouteWithModalRef.current = null;
-            setForceShowModal(false); // Reset force flag when navigating away
-            setForceShowCalendlyModal(false);
+
+            // NOTE:
+            // Do NOT reset forceShowModal / forceShowCalendlyModal here.
+            // These flags may have just been set by a CTA click on a *non-restricted*
+            // route (e.g. home page) immediately before navigation to a restricted route
+            // like /get-me-interview or /book-now.
+            //
+            // If we clear them here, the first click effectively gets "eaten"
+            // during the transition, and the user must click a second time on
+            // the new route to actually open the modal.
+            //
+            // The flags are already cleared in the specific branches where they
+            // are handled (e.g. when opening the modals on the restricted routes),
+            // so leaving them untouched here is safe and fixes the double-click issue.
         }
     }, [pathname, searchParams, isFromIndia, geoLoading, forceShowModal, forceShowCalendlyModal]);
 
