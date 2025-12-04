@@ -354,7 +354,7 @@ export default function PricingCard({
   };
   
   return (
-    <div className="flex flex-col max-w-[25rem] min-w-[22rem] max-[1024px]:min-w-[20rem] max-[768px]:max-w-[90%] max-[768px]:min-w-0 max-[768px]:w-full h-full">
+    <div className="flex flex-col w-full h-full">
     <div
       className={`bg-white border rounded-[0.3rem] p-8 flex-1 flex flex-col text-left relative transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(0,0,0,0.05)] max-[768px]:p-6 ${highlight ? "border-2 border-[#ff4c00]" : "border border-black"}`}
     >
