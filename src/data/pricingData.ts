@@ -13,6 +13,22 @@ export interface PricingPlan {
 
 export const usPricingPlans: PricingPlan[] = [
   {
+    title: "PRIME",
+    subTitle: "160 Applications",
+    description: "Perfect starter plan for job seekers",
+    price: "$119",
+    oldPrice: undefined,
+    features: [
+      "No Time Constraint",
+      "AI-powered job matching",
+      "Resume Optimization",
+      "Basic Analytical Dashboard",
+    ],
+    addOn: true,
+    highlight: false,
+    paymentLink: "https://www.paypal.com/ncp/payment/PRIME_US_PLACEHOLDER",
+  },
+  {
     title: "IGNITE",
     subTitle: "250 Applications",
     description: "For senior professionals & executives",
@@ -68,6 +84,22 @@ export const usPricingPlans: PricingPlan[] = [
 ];
 
 export const canadaPricingPlans: PricingPlan[] = [
+  {
+    title: "PRIME",
+    subTitle: "160 Applications",
+    description: "Perfect starter plan for job seekers",
+    price: "CA$179",
+    oldPrice: undefined,
+    features: [
+      "AI-powered job matching",
+      "160 tailored applications",
+      "Resume optimization",
+      "Basic analytics dashboard",
+    ],
+    addOn: true,
+    highlight: false,
+    paymentLink: "https://www.paypal.com/ncp/payment/PRIME_CA_PLACEHOLDER",
+  },
   {
     title: "IGNITE",
     subTitle: "250 Applications",

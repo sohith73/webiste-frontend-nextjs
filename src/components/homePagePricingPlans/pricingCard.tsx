@@ -48,6 +48,8 @@ interface UpgradePrice {
 }
 
 const upgradePrices: UpgradePrice[] = [
+  { from: "PRIME", to: "PROFESSIONAL", price: 240, paymentUrl: "https://www.paypal.com/ncp/payment/PRIME_TO_PRO_PLACEHOLDER" },
+  { from: "PRIME", to: "EXECUTIVE", price: 490, paymentUrl: "https://www.paypal.com/ncp/payment/PRIME_TO_EXEC_PLACEHOLDER" },
   { from: "IGNITE", to: "PROFESSIONAL", price: 170, paymentUrl: "https://www.paypal.com/ncp/payment/7Z7GT5CF75L3A" },
   { from: "IGNITE", to: "EXECUTIVE", price: 420, paymentUrl: "https://www.paypal.com/ncp/payment/AHW9DGNYWABZ4" },
   { from: "PROFESSIONAL", to: "EXECUTIVE", price: 285, paymentUrl: "https://www.paypal.com/ncp/payment/VR5YKZW26JUEL" },
@@ -56,6 +58,26 @@ const upgradePrices: UpgradePrice[] = [
 // Booster options with payment URLs for different plans and countries
 const planBoosterOptions: Record<string, Record<string, BoosterOption[]>> = {
   US: {
+    PRIME: [
+      { 
+        applications: 250, 
+        price: 120, 
+        label: "+250 Extra Applications",
+        paymentUrl: "https://www.paypal.com/ncp/payment/PRIME_250_US_PLACEHOLDER"
+      },
+      { 
+        applications: 500, 
+        price: 200, 
+        label: "+500 Extra Applications",
+        paymentUrl: "https://www.paypal.com/ncp/payment/PRIME_500_US_PLACEHOLDER"
+      },
+      { 
+        applications: 1000, 
+        price: 350, 
+        label: "+1000 Extra Applications",
+        paymentUrl: "https://www.paypal.com/ncp/payment/PRIME_1000_US_PLACEHOLDER"
+      },
+    ],
     IGNITE: [
       { 
         applications: 250, 
@@ -118,6 +140,26 @@ const planBoosterOptions: Record<string, Record<string, BoosterOption[]>> = {
     ],
   },
   CA: {
+    PRIME: [
+      { 
+        applications: 250, 
+        price: 170, 
+        label: "+250 Extra Applications",
+        paymentUrl: "https://www.paypal.com/ncp/payment/PRIME_250_CA_PLACEHOLDER"
+      },
+      { 
+        applications: 500, 
+        price: 280, 
+        label: "+500 Extra Applications",
+        paymentUrl: "https://www.paypal.com/ncp/payment/PRIME_500_CA_PLACEHOLDER"
+      },
+      { 
+        applications: 1000, 
+        price: 490, 
+        label: "+1000 Extra Applications",
+        paymentUrl: "https://www.paypal.com/ncp/payment/PRIME_1000_CA_PLACEHOLDER"
+      },
+    ],
     IGNITE: [
       { 
         applications: 250, 
@@ -203,7 +245,7 @@ export default function PricingCard({
   const upgradeOptions = useMemo(() => {
     if (!allPlans || allPlans.length === 0) return [];
     
-    const planHierarchy = ["IGNITE", "PROFESSIONAL", "EXECUTIVE"];
+    const planHierarchy = ["PRIME", "IGNITE", "PROFESSIONAL", "EXECUTIVE"];
     const currentPlanIndex = planHierarchy.indexOf(title);
     
     if (currentPlanIndex === -1 || currentPlanIndex === planHierarchy.length - 1) {
